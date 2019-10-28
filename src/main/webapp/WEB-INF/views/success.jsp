@@ -14,5 +14,6 @@
 Customer name : ${name} <br>  
 No of guest : ${dineInForm.noOfGuest} <br>  
 Time: ${dineInForm.time}<br>  
+<p><a href="/springexample/fileUploadPage">to upload id proof click here</a></p>
 </body>
 </html>

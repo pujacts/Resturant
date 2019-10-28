@@ -38,7 +38,15 @@
 		
 		</property>
 	</bean>
+	<!-- for adding the interceptors -->
+	<mvc:interceptors>
+    <bean id="DineInInterceptor" class="com.dinein.interceptor.DineInInterceptor"/>
+</mvc:interceptors>
 	
 	<!-- for adding external resources -->
 	<mvc:resources mapping="/resources/**" location="resources/css/**"></mvc:resources>
-  </beans>
+  
+ <!-- for uploading file  --> 
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+</bean>
+</beans>
