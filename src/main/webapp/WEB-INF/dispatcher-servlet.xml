@@ -30,18 +30,28 @@
      
      <!-- For reading the property files -->
      <bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 		<list><value>message</value>
-		
+		<value>/WEB-INF/i18n/myMessages</value>
 		</list>
-		
 		</property>
 	</bean>
-	<!-- for adding the interceptors -->
+	
+	<!-- for adding locale resolver-->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="en" />
+</bean>
+
+<!-- for adding the interceptors -->
 	<mvc:interceptors>
     <bean id="DineInInterceptor" class="com.dinein.interceptor.DineInInterceptor"/>
-</mvc:interceptors>
+    <bean
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="locale" />
+		</bean>
+    </mvc:interceptors>
 	
 	<!-- for adding external resources -->
 	<mvc:resources mapping="/resources/**" location="resources/css/**"></mvc:resources>

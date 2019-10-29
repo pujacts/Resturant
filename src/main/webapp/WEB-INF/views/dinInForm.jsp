@@ -51,15 +51,15 @@
 <tr>
 <td>TIme(Lunch/Dinner)</td>
 <td>
-12:00PM<form:radiobutton path="time"/></td>
-<td>01:00PM<form:radiobutton path="time"/></td>
+12:00PM<form:radiobutton value="12:00PM" path="time"/></td>
+<td>01:00PM<form:radiobutton value="01:00PM" path="time"/></td>
 </tr>
 
 <tr>
 <td></td>
 <td>
-08:00PM<form:radiobutton path="time"/></td>
-<td>09:00PM<form:radiobutton path="time"/></td>
+08:00PM<form:radiobutton value="08:00PM" path="time"/></td>
+<td>09:00PM<form:radiobutton value="09:00PM" path="time"/></td>
 <td><form:errors path="time" cssClass="error" /></td>
 </tr>
 
@@ -70,7 +70,7 @@
 </tr>
 
 <tr>
-<td>name</td>
+<td><label><spring:message code="label.name"></spring:message></label></td>
 <td><form:input path="name"/></td>
 <td><form:errors path="name" cssClass="error" /></td>
 </tr>

@@ -67,7 +67,9 @@ public class DineInMgmtController {
 		}
 		model.addAttribute("dineInForm",dineInForm);
          model.addAttribute("name", dineInForm.getName());
+         model.addAttribute("time", dineInForm.getTime());
 		System.out.println(dineInForm.getMobNo());
+		System.out.println(dineInForm.getTime());
 		return "success";
 	}
 }

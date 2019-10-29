@@ -56,11 +56,18 @@ FileValidator dineValidator=new FileValidator();
 	 */
 	   
 	   @RequestMapping(value="/fileUploadPage", method = RequestMethod.POST)
-	   public String fileUpload(@Validated FileUploader file, BindingResult result, ModelMap model) throws IOException {
-	      if (result.hasErrors()) {
-	         System.out.println("validation errors");
-	         return "error";
-	      } else {            
+	   public String fileUpload(/*@Validated*/ FileUploader file, /*BindingResult result*/ ModelMap model) throws IOException {
+	     // if (result.hasErrors()) {
+	       //  System.out.println("validation errors");
+	        // return "error";
+	     // } 
+		   if(file.getFile().isEmpty())
+			{
+				System.out.println("validation errors");
+		         return "error";
+			}
+
+		   else {            
 	         System.out.println("Fetching file");
 	         MultipartFile multipartFile = file.getFile();
 	         String uploadPath="F:/SingleFileUpload";  
@@ -70,6 +77,7 @@ FileValidator dineValidator=new FileValidator();
 	         model.addAttribute("fileName", fileName);
 	         return "successFile";
 	      }
+	     
 	   }
 	}
 
